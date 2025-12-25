@@ -20,12 +20,21 @@ const underscoreStatus = document.getElementById('underscoreStatus');
 const removeKeywordInput = document.getElementById('removeKeyword');
 const caseSensitiveCheckbox = document.getElementById('caseSensitive');
 const capitalizationSelect = document.getElementById('capitalization');
+const themeToggle = document.getElementById('themeToggle');
 
 // Initialize
 init();
 
 function init() {
+    setupTheme();
     setupEventListeners();
+}
+
+function setupTheme() {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light') {
+        document.body.classList.add('light-mode');
+    }
 }
 
 function setupEventListeners() {
@@ -39,6 +48,7 @@ function setupEventListeners() {
     applyRenameBtn.addEventListener('click', applyRename);
     clearBtn.addEventListener('click', clearFiles);
     undoBtn.addEventListener('click', undoLastRename);
+    themeToggle.addEventListener('click', toggleTheme);
 
     // Controls - update preview on change
     replaceUnderscoresCheckbox.addEventListener('change', () => {
@@ -180,7 +190,6 @@ function updatePreview() {
         const hasChanged = file.name !== newName;
 
         const row = document.createElement('tr');
-        row.className = 'fade-in';
         row.innerHTML = `
       <td>
         ${hasConflict ? '<span class="conflict-icon" title="Duplicate name">⚠️</span>' : ''}
@@ -350,5 +359,12 @@ function updateUndoButton() {
     } else {
         undoBtn.style.display = 'none';
     }
+}
+
+// Theme Toggle
+function toggleTheme() {
+    document.body.classList.toggle('light-mode');
+    const isLight = document.body.classList.contains('light-mode');
+    localStorage.setItem('theme', isLight ? 'light' : 'dark');
 }
 

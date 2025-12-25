@@ -16,7 +16,18 @@
     <div class="content-area">
       <!-- Header -->
       <header class="header">
-        <h1>Smart Renamer</h1>
+        <div class="brand-container">
+          <div class="brand">
+            <span class="brand-icon">✦</span>
+            <h1>Smart Renamer</h1>
+          </div>
+          <p class="tagline">Precision Batch Processing</p>
+        </div>
+        <div class="header-actions">
+          <button id="themeToggle" title="Toggle Theme">
+            <span>◐</span>
+          </button>
+        </div>
       </header>
 
       <!-- Controls Panel -->
@@ -62,9 +73,14 @@
 
       <!-- Drop Zone / File Selection -->
       <section id="dropZone" class="drop-zone">
-        <div class="drop-zone-icon">📁</div>
-        <h3>Drop files here</h3>
-        <p>or click to browse</p>
+        <div class="drop-zone-visual">
+          <!-- Simplified Visual: No rings -->
+          <div class="drop-zone-icon">📁</div>
+        </div>
+        <div class="drop-zone-text">
+          <h3>Drop files here</h3>
+          <p>or <span class="link-text">browse</span> to select</p>
+        </div>
       </section>
 
       <!-- File List / Preview -->
