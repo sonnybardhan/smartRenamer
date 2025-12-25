@@ -10,7 +10,6 @@ const dropZone = document.getElementById('dropZone');
 const fileList = document.getElementById('fileList');
 const previewTableBody = document.getElementById('previewTableBody');
 const fileCount = document.getElementById('fileCount');
-const selectFilesBtn = document.getElementById('selectFilesBtn');
 const applyRenameBtn = document.getElementById('applyRenameBtn');
 const clearBtn = document.getElementById('clearBtn');
 const undoBtn = document.getElementById('undoBtn');
@@ -37,7 +36,6 @@ function setupEventListeners() {
     dropZone.addEventListener('drop', handleDrop);
 
     // Buttons
-    selectFilesBtn.addEventListener('click', selectFiles);
     applyRenameBtn.addEventListener('click', applyRename);
     clearBtn.addEventListener('click', clearFiles);
     undoBtn.addEventListener('click', undoLastRename);
@@ -100,7 +98,6 @@ function showFileList() {
     fileList.style.display = 'flex';
     applyRenameBtn.style.display = 'inline-flex';
     clearBtn.style.display = 'inline-flex';
-    selectFilesBtn.textContent = '📂 Add More Files';
 }
 
 function clearFiles() {
@@ -109,7 +106,6 @@ function clearFiles() {
     fileList.style.display = 'none';
     applyRenameBtn.style.display = 'none';
     clearBtn.style.display = 'none';
-    selectFilesBtn.textContent = '📂 Select Files';
     previewTableBody.innerHTML = '';
 }
 
