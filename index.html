@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Renamer</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="app-container">
+    <!-- Header -->
+    <header class="header">
+      <h1>Smart Renamer</h1>
+      <p>Batch rename files with intelligent rules</p>
+    </header>
+
+    <!-- Controls Panel -->
+    <section class="controls-panel">
+      <div class="controls-grid">
+        <!-- Replace Underscores -->
+        <div class="control-group">
+          <label>
+            <span>Replace Underscores</span>
+          </label>
+          <div class="toggle-group">
+            <label class="toggle-switch">
+              <input type="checkbox" id="replaceUnderscores" checked>
+              <span class="toggle-slider"></span>
+            </label>
+            <span id="underscoreStatus" style="color: var(--text-secondary); font-size: 0.875rem;">Enabled</span>
+          </div>
+        </div>
+
+        <!-- Remove Keyword -->
+        <div class="control-group">
+          <label for="removeKeyword">Remove Keyword/Phrase</label>
+          <input type="text" id="removeKeyword" placeholder="e.g., draft, temp, copy">
+          <div class="checkbox-group">
+            <input type="checkbox" id="caseSensitive">
+            <label for="caseSensitive">Case sensitive</label>
+          </div>
+        </div>
+
+        <!-- Smart Capitalization -->
+        <div class="control-group">
+          <label for="capitalization">Smart Capitalization</label>
+          <select id="capitalization">
+            <option value="none">None (keep original)</option>
+            <option value="title">Title Case</option>
+            <option value="sentence">Sentence case</option>
+            <option value="upper">UPPERCASE</option>
+            <option value="lower">lowercase</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <!-- Drop Zone / File Selection -->
+    <section id="dropZone" class="drop-zone">
+      <div class="drop-zone-icon">📁</div>
+      <h3>Drop files here</h3>
+      <p>or click to browse</p>
+    </section>
+
+    <!-- File List / Preview -->
+    <section id="fileList" class="file-list" style="display: none;">
+      <div class="file-list-header">
+        <h2>Preview</h2>
+        <span class="file-count" id="fileCount">0 files</span>
+      </div>
+      <div class="preview-table-container">
+        <table class="preview-table">
+          <thead>
+            <tr>
+              <th style="width: 40px;"></th>
+              <th>Original Name</th>
+              <th style="width: 40px;"></th>
+              <th>New Name</th>
+            </tr>
+          </thead>
+          <tbody id="previewTableBody">
+            <!-- Rows will be inserted here -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Action Buttons -->
+    <div class="button-group">
+      <button id="selectFilesBtn" class="btn-secondary">
+        📂 Select Files
+      </button>
+      <button id="applyRenameBtn" class="btn-primary" style="display: none;">
+        ✨ Apply Rename
+      </button>
+      <button id="clearBtn" class="btn-danger" style="display: none;">
+        🗑️ Clear
+      </button>
+      <button id="undoBtn" class="btn-secondary" style="display: none;">
+        ↶ Undo
+      </button>
+    </div>
+  </div>
+
+  <script src="renderer.js"></script>
+</body>
+
+</html>
