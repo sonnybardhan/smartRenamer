@@ -5,12 +5,34 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "dev": "electron . --dev"
+    "dev": "electron . --dev",
+    "build": "electron-builder",
+    "dist": "electron-builder"
   },
-  "keywords": ["file", "rename", "batch", "utility"],
+  "build": {
+    "appId": "com.smartrenamer.app",
+    "productName": "Smart Renamer",
+    "mac": {
+      "category": "public.app-category.utilities",
+      "target": [
+        "dmg",
+        "zip"
+      ]
+    },
+    "directories": {
+      "output": "dist"
+    }
+  },
+  "keywords": [
+    "file",
+    "rename",
+    "batch",
+    "utility"
+  ],
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "electron": "^28.0.0"
+    "electron": "^28.0.0",
+    "electron-builder": "^26.0.12"
   }
 }
